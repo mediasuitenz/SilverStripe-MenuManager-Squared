@@ -1,8 +1,14 @@
 <?php
 
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\ORM\DataExtension;
+use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
+
 class MenuSetSquared extends DataExtension
 {
-
     public function updateCMSFields(FieldList $fields)
     {
         $menuItem = $fields->dataFieldByName('MenuItems');
@@ -21,5 +27,4 @@ class MenuSetSquared extends DataExtension
             $menuItemConfig->addComponent(new GridFieldDeleteAction());
         }
     }
-
 }

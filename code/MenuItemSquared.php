@@ -1,19 +1,33 @@
 <?php
 
+use Heyday\MenuManager\MenuItem;
+use Heyday\MenuManager\MenuSet;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\Image;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\ORM\DataExtension;
+use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+
 class MenuItemSquared extends DataExtension
 {
-
     private static $db = [
         'Name' => 'Varchar(255)',
     ];
 
     private static $has_one = [
-        'Image'      => 'Image',
-        'ParentItem' => 'MenuItem',
+        'Image' => Image::class,
+        'ParentItem' => MenuItem::class,
     ];
 
     private static $has_many = [
-        'ChildItems' => 'MenuItem',
+        'ChildItems' => MenuItem::class,
     ];
 
     public function updateCMSFields(FieldList $fields)

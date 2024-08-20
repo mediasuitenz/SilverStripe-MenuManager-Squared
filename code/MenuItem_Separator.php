@@ -1,5 +1,10 @@
 <?php
 
+use Heyday\MenuManager\MenuItem;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Security\PermissionProvider;
+
 /**
  * Class MenuItem
  */
@@ -29,7 +34,7 @@ class MenuItem_Separator extends MenuItem implements PermissionProvider
     /**
      * @return FieldList
      */
-    public function getCMSFields()
+    public function getCMSFields(): FieldList
     {
         $fields = new FieldList();
 
@@ -61,5 +66,4 @@ class MenuItem_Separator extends MenuItem implements PermissionProvider
         $this->PageID  = 0;
         $this->ImageID = 0;
     }
-
 }
